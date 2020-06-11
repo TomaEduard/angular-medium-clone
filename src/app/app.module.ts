@@ -16,7 +16,7 @@ import { environment } from '../environments/environment'; // Angular CLI enviro
     AppRoutingModule, 
     AuthModule,
     ReactiveFormsModule,
-    StoreModule.forRoot([]), // NgRx
+    StoreModule.forRoot({}), // NgRx
     StoreDevtoolsModule.instrument({ // DevTools
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
