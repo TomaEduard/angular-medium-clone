@@ -8,11 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment
+import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule, 
+    HttpClientModule,
     AppRoutingModule, 
     AuthModule,
     ReactiveFormsModule,
@@ -21,6 +24,7 @@ import { environment } from '../environments/environment'; // Angular CLI enviro
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],
