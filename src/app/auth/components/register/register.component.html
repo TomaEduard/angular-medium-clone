@@ -12,9 +12,11 @@
         </p>
 
         <!-- Errors -->
-        BackendErrors are here
+        <app-backendErrorMessages
+          *ngIf="backendErrors$ | async"
+          [backendErrors]="backendErrors$ | async"
+        ></app-backendErrorMessages>
 
-        
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <fieldset>
 
