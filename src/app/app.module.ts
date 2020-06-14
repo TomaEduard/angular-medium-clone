@@ -1,3 +1,4 @@
+import { FeedComponent } from './shared/modules/feed/components/feed/feed.component';
 import { AuthInterceptor } from './shared/services/authInterceptor.service';
 import { PersistanceService } from './shared/services/persistance.service';
 import { TopBarModule } from './shared/modules/topBar/topBar.module';
@@ -13,6 +14,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +30,9 @@ import { EffectsModule } from '@ngrx/effects';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot([]),
-    TopBarModule
+    TopBarModule,
+    GlobalFeedModule,
+    
   ],
   providers: [
     PersistanceService,
