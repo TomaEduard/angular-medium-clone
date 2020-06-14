@@ -1,21 +1,19 @@
-import { PersistanceService } from './../../../shared/services/persistance.service';
+import { Router } from '@angular/router';
+import { loginAction, 
+  loginSuccessAction, 
+  loginFailureAction } from './../actions/login.actions';
+  import {of} from 'rxjs'
+import { PersistanceService } from '../../../shared/services/persistance.service';
 import {Injectable} from '@angular/core'
 import {createEffect, Actions, ofType} from '@ngrx/effects'
 import {map, catchError, switchMap, tap} from 'rxjs/operators'
 
-import {
-  registerAction,
-  registerSuccessAction,
-  registerFailureAction
-} from '../actions/register.actions'
 import {AuthService} from '../../services/auth.service'
 import {CurrentUserInterface} from 'src/app/shared/types/currentUser.interface'
-import {of} from 'rxjs'
 import { HttpErrorResponse } from '@angular/common/http'
-import { Router } from '@angular/router';
 
 @Injectable()
-export class RegisterEffect {
+export class LoginEffect {
 
   constructor(private actions$: Actions,
     private authService: AuthService, 
@@ -23,28 +21,28 @@ export class RegisterEffect {
     private router: Router,
   ) {}
 
-  register$ = createEffect(() =>
+  login$ = createEffect(() =>
     this.actions$.pipe(
 
-      // get register action with property request: RegisterRequestInterface
-      ofType(registerAction),
+      // get login action with property request: loginRequestInterface
+      ofType(loginAction),
 
       switchMap(({request}) => {
         // make the request
-        return this.authService.register(request).pipe(
+        return this.authService.login(request).pipe(
 
           // success case
           map((currentUser: CurrentUserInterface) => {
             // save jwt to ls
             this.persistanceService.set('accessToken', currentUser.token)
             // call acction success case to save to store
-            return registerSuccessAction({currentUser})
+            return loginSuccessAction({currentUser})
           }),
 
           // failure case 
           catchError((errorResponse: HttpErrorResponse) => {
             // 'of' return all the data
-            return of(registerFailureAction({errors: errorResponse.error.errors}))
+            return of(loginFailureAction({errors: errorResponse.error.errors}))
           })
         )
       })
@@ -54,7 +52,7 @@ export class RegisterEffect {
 
   redirectAfterSubmit$ = createEffect(() => 
     this.actions$.pipe(
-      ofType(registerSuccessAction),
+      ofType(loginSuccessAction),
       tap(() => {
         console.log('1')
         this.router.navigateByUrl('/')

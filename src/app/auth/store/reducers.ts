@@ -1,6 +1,7 @@
 import { AuthStateInterface } from "./../types/authState.interface";
 import { createReducer, State, on, Action } from "@ngrx/store";
 import { registerAction, registerSuccessAction, registerFailureAction } from './actions/register.actions';
+import { loginAction, loginSuccessAction, loginFailureAction } from './actions/login.actions';
 
 const initialState: AuthStateInterface = {
 
@@ -14,13 +15,13 @@ const initialState: AuthStateInterface = {
 const authReducer = createReducer(
   initialState,
   
+  // Register
   on(registerAction,
     (state): AuthStateInterface => ({
       ...state,
       isSubmitting: true,
       validationErrors: null
     })
-    
   ),
 
   on(registerSuccessAction, 
@@ -39,7 +40,33 @@ const authReducer = createReducer(
       validationErrors: action.errors
     })
   ),
-  
+
+  // Login
+  on(loginAction,
+    (state): AuthStateInterface => ({
+      ...state,
+      isSubmitting: true,
+      validationErrors: null
+    })
+  ),
+
+  on(loginSuccessAction,
+    (state, action): AuthStateInterface => ({
+      ...state,
+      isSubmitting: false,
+      isLoggedIn: true,
+      currentUser: action.currentUser
+    })
+  ),
+
+  on(loginFailureAction,
+    (state, action): AuthStateInterface => ({
+    ...state,
+    isSubmitting: false,
+    validationErrors: action.errors
+    })
+  ),
+
 );
 
 export function reduces(state: AuthStateInterface, action: Action) {

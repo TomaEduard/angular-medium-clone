@@ -6,7 +6,7 @@ import { Store, select } from '@ngrx/store';
 import { registerAction } from '../../store/actions/register.actions';
 import { Observable } from 'rxjs';
 import { isSubmittingSelector } from '../../store/selector';
-import { RegisterRequestInterface } from 'src/app/types/registerRequest.interface';
+import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
 
 @Component({
@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("submit", this.form.value, this.form.valid)
+    console.log("submit register", this.form.value, this.form.valid)
     const request: RegisterRequestInterface = {
       user: this.form.value
     }
