@@ -1,3 +1,4 @@
+import { TopBarModule } from './shared/modules/topBar/topBar.module';
 import { AuthModule } from "./auth/auth.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -25,6 +26,7 @@ import { EffectsModule } from '@ngrx/effects';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot([]),
+    TopBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

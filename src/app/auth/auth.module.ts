@@ -1,5 +1,4 @@
 import { LoginComponent } from './components/login/login.component';
-import { BackendErrorMessagesModule } from './../types/modules/backendErrorMessages/backendErrorMessages.module';
 import { RegisterEffect } from './store/effects/register.effect';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -12,6 +11,7 @@ import { AuthService } from './services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { PersistanceService } from '../shared/services/persistance.service';
 import { LoginEffect } from './store/effects/login.effect';
+import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
 
 const routes = [
   {

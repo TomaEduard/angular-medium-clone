@@ -7,6 +7,4 @@ import { BackendErrorMessagesComponent } from './components/backendErrorMessages
   declarations: [BackendErrorMessagesComponent],
   exports: [BackendErrorMessagesComponent]
 })
-export class BackendErrorMessagesModule{
-
-}
+export class BackendErrorMessagesModule {}
