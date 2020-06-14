@@ -1,3 +1,4 @@
+import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterEffect } from './store/effects/register.effect';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +32,7 @@ const routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reduces),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect]),
     BackendErrorMessagesModule
   ], 
   declarations: [RegisterComponent, LoginComponent],
