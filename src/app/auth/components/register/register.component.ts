@@ -46,6 +46,6 @@ export class RegisterComponent implements OnInit {
       user: this.form.value
     }
     this.store.dispatch(registerAction({request}))
-
   }
+
 }

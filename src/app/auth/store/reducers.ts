@@ -13,13 +13,14 @@ const initialState: AuthStateInterface = {
 
 const authReducer = createReducer(
   initialState,
-
+  
   on(registerAction,
     (state): AuthStateInterface => ({
       ...state,
       isSubmitting: true,
       validationErrors: null
     })
+    
   ),
 
   on(registerSuccessAction, 

@@ -8,6 +8,8 @@ import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.inter
 })
 export class BackendErrorMessagesComponent implements OnInit {
 
+  // example of error message comming from redux
+  // validationErrors/username/0:"cant be blank" 1:"is too short"
   @Input('backendErrors') backendErrorsProps: BackendErrorsInterface
 
   errorMessages: string[]
@@ -17,7 +19,7 @@ export class BackendErrorMessagesComponent implements OnInit {
   ngOnInit(): void {
     this.errorMessages = Object.keys(this.backendErrorsProps).map(
       (name: string) => {
-        const messages = this.backendErrorsProps[name].join(' ')
+        const messages = this.backendErrorsProps[name].join(', ')
         return `${name} ${messages}`
       }
     )
