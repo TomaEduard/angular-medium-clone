@@ -1,7 +1,7 @@
 import { currentUserSelector } from './selector';
 import { getCurrentUserAction, getCurrentUserSuccessAction, getCurrentUserFailureAction } from './actions/getCurrentUser.action';
-import { AuthStateInterface } from "./../types/authState.interface";
-import { createReducer, State, on, Action } from "@ngrx/store";
+import { AuthStateInterface } from './../types/authState.interface';
+import { createReducer, State, on, Action } from '@ngrx/store';
 import { registerAction, registerSuccessAction, registerFailureAction } from './actions/register.actions';
 import { loginAction, loginSuccessAction, loginFailureAction } from './actions/login.actions';
 
@@ -17,7 +17,7 @@ const initialState: AuthStateInterface = {
 
 const authReducer = createReducer(
   initialState,
-  
+
   // Register
   on(registerAction,
     (state): AuthStateInterface => ({
@@ -27,7 +27,7 @@ const authReducer = createReducer(
     })
   ),
 
-  on(registerSuccessAction, 
+  on(registerSuccessAction,
     (state, action): AuthStateInterface => ({
     ...state,
     isSubmitting: false,
@@ -39,7 +39,7 @@ const authReducer = createReducer(
   on(registerFailureAction,
     (state, action): AuthStateInterface => ({
       ...state,
-      isSubmitting:false,
+      isSubmitting: false,
       validationErrors: action.errors
     })
   ),
@@ -103,5 +103,5 @@ const authReducer = createReducer(
 
 export function reduces(state: AuthStateInterface, action: Action) {
   // state is the state of reducer and action is what we change in our state
-  return authReducer(state, action)
+  return authReducer(state, action);
 }

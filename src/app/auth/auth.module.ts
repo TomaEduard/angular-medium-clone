@@ -3,9 +3,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterEffect } from './store/effects/register.effect';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { RegisterComponent } from "./components/register/register.component";
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { RegisterComponent } from './components/register/register.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { reduces } from './store/reducers';
 import { AuthService } from './services/auth.service';
@@ -16,12 +16,12 @@ import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessag
 
 const routes = [
   {
-    path: "register",
+    path: 'register',
     component: RegisterComponent,
   },
 
   {
-    path: "login",
+    path: 'login',
     component: LoginComponent,
   },
 ];
@@ -34,7 +34,7 @@ const routes = [
     StoreModule.forFeature('auth', reduces),
     EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect]),
     BackendErrorMessagesModule
-  ], 
+  ],
   declarations: [RegisterComponent, LoginComponent],
   providers: [AuthService, PersistanceService]
 })

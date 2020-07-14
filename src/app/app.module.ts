@@ -2,12 +2,12 @@ import { FeedComponent } from './shared/modules/feed/components/feed/feed.compon
 import { AuthInterceptor } from './shared/services/authInterceptor.service';
 import { PersistanceService } from './shared/services/persistance.service';
 import { TopBarModule } from './shared/modules/topBar/topBar.module';
-import { AuthModule } from "./auth/auth.module";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { AuthModule } from './auth/auth.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -19,9 +19,9 @@ import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     HttpClientModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     AuthModule,
     ReactiveFormsModule,
     StoreModule.forRoot({}), // NgRx
@@ -32,7 +32,7 @@ import { GlobalFeedModule } from './globalFeed/globalFeed.module';
     EffectsModule.forRoot([]),
     TopBarModule,
     GlobalFeedModule,
-    
+
   ],
   providers: [
     PersistanceService,
