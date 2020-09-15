@@ -9,9 +9,7 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private store: Store) {
-
-  }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.store.dispatch(getCurrentUserAction());

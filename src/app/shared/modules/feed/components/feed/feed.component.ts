@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements  OnInit {
 
   constructor() { }
 

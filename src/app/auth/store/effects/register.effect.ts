@@ -52,6 +52,7 @@ export class RegisterEffect {
     )
   );
 
+  // after success case of return registerSuccessAction will call this function for navigate to "/"
   redirectAfterSubmit$ = createEffect(() =>
     this.actions$.pipe(
       ofType(registerSuccessAction),

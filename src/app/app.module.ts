@@ -14,7 +14,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
-import { GlobalFeedModule } from './globalFeed/globalFeed.module';
+import { GlobalFeedModule } from './globalFeed/components/globalFeed/globalFeed.module';
 
 @NgModule({
   declarations: [AppComponent],

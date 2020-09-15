@@ -98,7 +98,6 @@ const authReducer = createReducer(
     })
   ),
 
-
 );
 
 export function reduces(state: AuthStateInterface, action: Action) {
